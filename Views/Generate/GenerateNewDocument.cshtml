@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Nuevo Documento Generado";
+}
+
+<h2>Contenido Original del Documento</h2>
+@Html.Raw(ViewBag.OriginalContent)
+
+<h2>Nuevo Documento Generado</h2>
+<div style="width: 600px; height: 800px; border: 1px solid #ccc;">
+    @if (!string.IsNullOrEmpty(ViewBag.NewDocumentPath))
+    {
+        <object data="@Url.Content(ViewBag.NewDocumentPath)" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+            El navegador no puede mostrar el documento.
+        </object>
+    }
+    else
+    {
+        <p>El documento no está disponible.</p>
+    }
+</div>
